@@ -7,6 +7,13 @@ async function findSenatorsByState(req: NextApiRequest, res: NextApiResponse) {
   try {
     const response = await fetch(url);
     const json = await response.json();
+    // Set the Cache-Control header to enable client-side and proxy caching for 1 hour
+    res.setHeader(
+      "Cache-Control",
+      `max-age=3600, s-maxage=3600, stale-while-revalidate`
+    );
+    res.setHeader("Vary", "Accept-Encoding, Cookie, state");
+    res.setHeader("Cache-Key", state || "default");
     res.status(200).json({
       success: true,
       results: json.results,
