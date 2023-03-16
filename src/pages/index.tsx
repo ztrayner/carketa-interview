@@ -34,6 +34,7 @@ const SearchPage: NextPage = () => {
   const [results, setResults] = useState<Representative[]>([]);
   const [selectedRepresentative, setSelectedRepresentative] =
     useState<Representative | null>(null);
+  const buttonIsDisabled = !state || !selectedRepOption || isLoading;
 
   const handleSearchTypeChange = (
     newValue: SingleValue<{ value: string; label: string }>
@@ -103,10 +104,19 @@ const SearchPage: NextPage = () => {
         </Box>
       </Box>
       <Button
-        bg="primary"
+        isDisabled={buttonIsDisabled}
+        isLoading={isLoading}
+        bg={"primary"}
         sx={{
           _hover: {
             bg: "primary.300",
+          },
+          _disabled: {
+            bg: "gray.300",
+            cursor: "not-allowed",
+            _hover: {
+              bg: "gray.300",
+            },
           },
         }}
         onClick={handleSearch}
