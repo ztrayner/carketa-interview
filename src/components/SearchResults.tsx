@@ -33,7 +33,7 @@ const SearchResults = ({
 
   return (
     <HStack
-      alignItems="start"
+      alignItems="stretch"
       justifyContent="space-evenly"
       spacing={4}
       h="100%"
@@ -106,7 +106,7 @@ const SearchResults = ({
         </Table>
       </Box>
       <Box flex={1} position="relative">
-        <Box position="sticky" top={2} zIndex={1}>
+        <Box position="sticky" top={4} zIndex={1}>
           <Heading as="h2" fontSize="2xl" fontWeight={400} mb={4}>
             Info
           </Heading>

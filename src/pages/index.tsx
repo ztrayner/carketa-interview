@@ -85,6 +85,7 @@ const SearchPage: NextPage = () => {
           <label htmlFor="search-type">Search Type:</label>
           <Select
             id="search-type"
+            instanceId="search-type"
             isSearchable={false}
             onChange={handleSearchTypeChange}
             options={repOptions}
@@ -94,6 +95,7 @@ const SearchPage: NextPage = () => {
           <label htmlFor="state">State:</label>
           <Select
             id="state"
+            instanceId="state"
             onChange={handleStateChange}
             options={states}
             value={state}
