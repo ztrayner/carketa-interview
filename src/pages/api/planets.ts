@@ -79,7 +79,10 @@ const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
       .map((planet) => planet.value);
 
     // Set the Cache-Control header to enable client-side and proxy caching for 1 hour
-    res.setHeader("Cache-Control", "max-age=3600");
+    res.setHeader(
+      "Cache-Control",
+      `max-age=3600, s-maxage=3600, stale-while-revalidate`
+    );
     res.status(200).json(validPlanets);
   } catch (error) {
     console.error(error);
