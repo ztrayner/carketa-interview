@@ -2,22 +2,7 @@ import { useState } from "react";
 import { NextPage } from "next";
 import Select, { SingleValue } from "react-select";
 import states, { State } from "@/utils/states";
-import {
-  Box,
-  Button,
-  Container,
-  Heading,
-  HStack,
-  Skeleton,
-  Table,
-  Tbody,
-  Td,
-  Text,
-  Th,
-  Thead,
-  Tr,
-} from "@chakra-ui/react";
-import RepresentativeDetails from "@/components/RepresentativeDetails";
+import { Box, Button, Container, Heading } from "@chakra-ui/react";
 import SearchResults from "@/components/SearchResults";
 
 export interface Representative {
