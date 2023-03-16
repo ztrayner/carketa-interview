@@ -52,4 +52,7 @@ const states = [
   { value: "WY", label: "Wyoming" },
 ];
 
+export type StateValues = typeof states[number]["value"];
+export type State = typeof states[number];
+
 export default states;

@@ -8,7 +8,13 @@ async function findRepresentativesByState(
   const url = `http://whoismyrepresentative.com/getall_reps_bystate.php?state=${state}&output=json`;
 
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      // this was to try to fix the special characters issue, but the api returns bad characters regardless
+      // see https://whoismyrepresentative.com/getall_reps_bystate.php?state=AZ&output=json for an example
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+    });
     const json = await response.json();
     // Set the Cache-Control header to enable client-side and proxy caching for 1 hour
     res.setHeader(
