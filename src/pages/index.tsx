@@ -23,9 +23,7 @@ const repOptions = [
 export type RepOptions = typeof repOptions[number]["value"];
 
 const SearchPage: NextPage = () => {
-  const [selectedRepOption, setSelectedRepOption] = useState<RepOptions | null>(
-    "representatives"
-  );
+  const [selectedRepOption, setSelectedRepOption] = useState<RepOptions | null>(null);
   const [loadedRepOption, setLoadedRepOption] = useState<RepOptions | null>(
     null
   );
@@ -82,7 +80,7 @@ const SearchPage: NextPage = () => {
         Who&apos;s My Representative
       </Heading>
       <Box my={4} maxW="300px" w="100%">
-        <Box my={2}>
+        <Box my={2} pos="relative" zIndex={3}>
           <label htmlFor="search-type">Search Type:</label>
           <Select
             id="search-type"
@@ -90,9 +88,9 @@ const SearchPage: NextPage = () => {
             isSearchable={false}
             onChange={handleSearchTypeChange}
             options={repOptions}
-          />
+            />
         </Box>
-        <Box my={2}>
+        <Box my={2} pos="relative" zIndex={2}>
           <label htmlFor="state">State:</label>
           <Select
             id="state"
@@ -100,7 +98,7 @@ const SearchPage: NextPage = () => {
             onChange={handleStateChange}
             options={states}
             value={state}
-          />
+            />
         </Box>
       </Box>
       <Button
